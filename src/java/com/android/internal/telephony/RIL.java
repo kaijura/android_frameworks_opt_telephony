@@ -1248,9 +1248,11 @@ public class RIL extends BaseCommands implements CommandsInterface {
 
     private void
     constructGsmSendSmsRilRequest (RILRequest rr, String smscPDU, String pdu) {
-        rr.mParcel.writeInt(2);
+        rr.mParcel.writeInt(4);
         rr.mParcel.writeString(smscPDU);
         rr.mParcel.writeString(pdu);
+        rr.mp.writeString(Integer.toString(0));
+        rr.mp.writeString(Integer.toString(1));
     }
 
     public void
